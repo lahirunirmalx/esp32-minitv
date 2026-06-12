@@ -1,0 +1,17 @@
+# Freenove ESP32 Mini TV — 4 MB flash, single factory app (no OTA).
+#
+# Deliberate choice: dual OTA slots on 4 MB would cap the app at ~1.5 MB,
+# which is tight with WiFi + BLE + LVGL aboard, and this board is always on
+# a USB cable anyway (USB-powered), so `idf.py flash monitor` is the dev loop.
+#
+# To switch to OTA later, replace the `factory` line with:
+#   otadata,  data, ota,     0x10000, 0x2000,
+#   ota_0,    app,  ota_0,   0x20000, 0x180000,
+#   ota_1,    app,  ota_1,   ,        0x180000,
+# and drop the `storage` partition (or shrink it to fit).
+#
+# Name,     Type, SubType, Offset,  Size,     Flags
+nvs,        data, nvs,     0x9000,  0x5000,
+phy_init,   data, phy,     0xf000,  0x1000,
+factory,    app,  factory, 0x10000, 0x2C0000,
+storage,    data, fat,     ,        0xC0000,
