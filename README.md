@@ -10,8 +10,9 @@ out, plug the device in, and prompt:
 Claude also explains every piece of code it writes in simple terms (see
 "Beginner mode" below).
 
-<!-- TODO(images): hero shot of the Mini TV cube running the demo app -->
-<!-- ![Mini TV running the demo app](docs/img/hero.jpg) -->
+<p align="center">
+  <img src="doc/pic_003.jpeg" alt="Mini TV cube on the bench running the demo app" width="420">
+</p>
 
 ## What's inside
 
@@ -102,6 +103,12 @@ mode (the `Audience:` setting in [CLAUDE.md](CLAUDE.md)).
 | demo | Animated hello screen — the canonical UI/animation pattern to copy |
 | info | WiFi + IP, BLE, heap (current + minimum-ever), firmware version, theme — your on-device debug screen |
 | weather | Live weather via open-meteo (no API key) — the canonical network-fetch pattern to copy; edit the coordinates at the top of `app_weather.cpp` |
+| messages | Shows the latest text written to the BLE RX characteristic (e.g. from LightBlue) and acks back over TX notify |
+
+<p align="center">
+  <img src="doc/pic_001.jpeg" alt="Demo app: animated Hello, Mini TV with accent arc (orange shell theme)" width="320">
+  <img src="doc/pic_002.jpeg" alt="Device Info app: wifi, BLE, heap, firmware version, theme" width="320">
+</p>
 
 After 1 minute idle the backlight turns off; after 5 minutes the device deep
 sleeps (touch the pad to wake — it reboots in a couple of seconds).
